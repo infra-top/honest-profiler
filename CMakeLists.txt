@@ -35,7 +35,7 @@ if (DEFINED ENV{UNITTEST_INCLUDE_DIRS})
     file(GLOB_RECURSE UNIT_TEST_H $ENV{UNITTEST_INCLUDE_DIRS}/*UnitTest++.h)
 else()
     if(${CMAKE_SYSTEM_NAME} MATCHES "Darwin")
-        find_package(UnitTest++ REQUIRED NO_MODULE)
+#        find_package(UnitTest++ REQUIRED NO_MODULE) For build on OSX, see: https://github.com/jvm-profiling-tools/honest-profiler/issues/248
         include_directories(${UTPP_INCLUDE_DIRS})
     else()
         #Debian/Ubuntu have their own unittest++ pkg-config package
